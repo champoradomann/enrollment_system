@@ -1659,3 +1659,15 @@ select {
   color: var(--text-color);
 }
 
+.academic-calendar-iframe {
+  width: 100%; /* Full width of the container */
+  height: 700px; /* Fixed height */
+  border: none; /* Remove iframe border */
+}
+
+/* Optional: Make the iframe responsive */
+@media (max-width: 768px) {
+  .academic-calendar-iframe {
+      height: 500px; /* Adjust height for smaller screens */
+  }
+}
