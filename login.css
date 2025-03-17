@@ -27,11 +27,13 @@ body {
 }
 
 .split.left {
+  flex: 3;
   background: url('https://via.placeholder.com/800') no-repeat center center/cover;
   color: #fff;
 }
 
 .split.right {
+  flex: 1;
   background: #fff;
   padding: 2rem;
 }
