@@ -85,19 +85,6 @@ input {
   background-color: #0056b3;
 }
 
-.signup-link {
-  margin-top: 1rem;
-}
-
-.signup-link a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.signup-link a:hover {
-  text-decoration: underline;
-}
-
 /* Responsive Styles */
 @media (max-width: 768px) {
   .container {
