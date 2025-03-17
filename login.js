@@ -21,6 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Simulate a login request (replace with actual API call)
     alert('Login successful! Redirecting to dashboard...');
-    window.location.href = 'index.html'; // Redirect to the main enrollment page
+
+    // Store the email in localStorage
+    localStorage.setItem('userEmail', email);
+
+    // Redirect to the main enrollment page
+    window.location.href = 'index.html';
   });
 });

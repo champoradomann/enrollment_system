@@ -1671,3 +1671,18 @@ select {
       height: 500px; /* Adjust height for smaller screens */
   }
 }
+
+.user-email {
+  font-size: 0.875rem;
+  color: var(--light-text);
+  margin-left: auto;
+  padding: 0.5rem 1rem;
+  background-color: rgba(59, 130, 246, 0.1);
+  border-radius: 0.25rem;
+  font-weight: 500;
+}
+
+
+
+
+

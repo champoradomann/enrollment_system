@@ -221,6 +221,13 @@ function init() {
   
   // Add event listeners
   addEventListeners();
+
+    // Display the logged-in user's email
+    const userEmail = localStorage.getItem('userEmail');
+    if (userEmail) {
+      const userEmailElement = document.getElementById('user-email');
+      userEmailElement.textContent = `Welcome back!: ${userEmail}`;
+    }
 }
 
 // Render available subjects
@@ -1185,7 +1192,7 @@ document.getElementById('logout-button').addEventListener('click', (e) => {
   e.preventDefault(); // Prevent default link behavior
 
   // Clear any session data (if applicable)
-  localStorage.removeItem('user'); // Example: Clear user data from localStorage
+  localStorage.removeItem('userEmail'); // Clear user email from localStorage
   sessionStorage.removeItem('user'); // Example: Clear user data from sessionStorage
 
   // Redirect to the login page
