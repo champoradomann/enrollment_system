@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CIIT Enrollment System</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <div id="app">
+
+      <header>
+        <div class="logo">
+          <h1>CIIT College</h1>
+          <p>Enrollment System</p>
+        </div>
+        
+       <!-- <nav>
+          <ul>
+            <li><a href="#" class="active" data-tab="home">Home</a></li>
+            <li><a href="#" data-tab="enrollment">Enrollment</a></li>
+            <li><a href="#" data-tab="instructors">Instructors</a></li>
+            <li><a href="#" data-tab="prerequisites">Prerequisites</a></li>
+            <li><a href="#" data-tab="completed">Completed Subjects</a></li>
+          </ul>
+        </nav>-->
+
+      </header>
+
+      <main>
+        <nav>
+          <ul>
+            <li><a href="#" class="active" data-tab="home">Home</a></li>
+            <li><a href="#" data-tab="enrollment">Enrollment</a></li>
+            <li><a href="#" data-tab="instructors">Instructors</a></li>
+            <li><a href="#" data-tab="prerequisites">Prerequisites</a></li>
+            <li><a href="#" data-tab="completed">Completed Subjects</a></li>
+            <li><a href="login.html" id="logout-button">Logout</a></li>
+          </ul>
+        </nav>
+        <!-- Home Dashboard Tab -->
+        <section id="home" class="tab-content active">
+                <!-- Notification Banner for Dean's Lister -->
+      <div class="notification-banner deans-lister">
+        Congratulations! You are eligible for pre-enrollment because you were a Dean's Lister last semester.
+      </div>
+          <h2>Home Dashboard</h2>
+          <div class="dashboard-container">
+            <div class="dashboard-stats">
+              <div class="stat-card">
+                <div class="stat-icon">📖</div>
+                <div class="stat-info">
+                  <h3>Enrolled Subjects</h3>
+                  <p id="enrolled-count">0</p>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">🎓</div>
+                <div class="stat-info">
+                  <h3>Completed Subjects</h3>
+                  <p id="completed-count">0</p>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">🗓️</div>
+                <div class="stat-info">
+                  <h3>Current Term</h3>
+                  <p>2nd Year (1st Semester)</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="dashboard-section">
+              <h3>Class</h3>
+              <div id="current-enrollment" class="enrollment-table-container">
+                <table class="enrollment-table">
+                  <thead>
+                    <tr>
+                      <th>Subject</th>
+                      <th>Instructor</th>
+                      <th>Schedule</th>
+                      <th>Units</th>
+                    </tr>
+                  </thead>
+                  <tbody id="enrollment-table-body">
+                    <!-- Enrolled subjects will be loaded here -->
+                  </tbody>
+                </table>
+                <div id="no-enrollment-message" class="empty-message">
+                  <p>You haven't enrolled in any subjects yet.</p>
+                  <button class="primary-button" onclick="switchTab('enrollment')">Browse Available Subjects</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="dashboard-section">
+              <h3>Enrollment Summary</h3>
+              <div class="summary-container">
+                <div class="summary-item">
+                  <span>Total Units:</span>
+                  <span id="summary-units">0</span>
+                </div>
+                <div class="summary-item">
+                  <span>Total Subjects:</span>
+                  <span id="summary-subjects">0</span>
+                </div>
+                <div class="summary-item">
+                  <span>Total Amount:</span>
+                  <span id="summary-amount">₱0.00</span>
+                </div>
+                <button id="dashboard-checkout" class="primary-button" disabled>Proceed to Payment</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Instructors Tab -->
+        <section id="instructors" class="tab-content">
+          <h2>Instructors Dashboard</h2>
+          <div class="search-container">
+            <input type="text" id="instructor-search" placeholder="Search for an instructor...">
+            <select id="filter-specialization">
+              <option value="">All Specializations</option>
+              <option value="Programming Languages">Programming Languages</option>
+              <option value="Software Engineering">Software Engineering</option>
+              <option value="Database Systems">Database Systems</option>
+              <option value="Data Management">Data Management</option>
+              <option value="Communication">Communication</option>
+              <option value="English Literature">English Literature</option>
+              <option value="Digital Art">Digital Art</option>
+              <option value="Illustration">Illustration</option>
+            </select>
+          </div>
+          <div class="instructors-dashboard">
+            <!-- Instructors will be loaded here -->
+          </div>
+        </section>
+
+        <!-- Prerequisites Tab -->
+        <section id="prerequisites" class="tab-content">
+          <h2>Subject Prerequisites Tree</h2>
+          <div class="search-container">
+            <input type="text" id="prerequisite-search" placeholder="Search for a subject...">
+          </div>
+          <div class="prerequisites-list">
+            <!-- Prerequisites will be loaded here -->
+          </div>
+        </section>
+
+        <!-- Completed Subjects Tab -->
+        <section id="completed" class="tab-content">
+          <h2>Completed Subjects</h2>
+          <div id="completed-subjects" class="completed-subjects">
+            <!-- Completed subjects will be loaded here -->
+          </div>
+        </section>
+
+        <!-- Enrollment Tab -->
+        <section id="enrollment" class="tab-content">
+          <h2>Available Subjects</h2>
+
+                  <!-- Total Units Display -->
+        <div class="total-units-display">
+          <div class="units-info">
+            <span>Total Units: <span id="header-total-units">0</span></span>
+            <span class="max-units">Maximum: 21 units</span>
+          </div>
+          <div class="units-progress">
+            <div id="units-progress-bar" class="progress-bar"></div>
+          </div>
+        </div>
+          <div class="search-container">
+            <input type="text" id="subject-search" placeholder="Search for a subject...">
+            <select id="filter-department">
+              <option value="">All Departments</option>
+              <option value="CS">Computer Science</option>
+              <option value="IT">Information Technology</option>
+              <option value="ARTS">Digital Arts</option>
+              <option value="GAME">Game Development</option>
+              <option value="GE">General Education</option>
+            </select>
+            <select id="filter-type">
+              <option value="">All Types</option>
+              <option value="major">Major</option>
+              <option value="gened">General Education</option>
+            </select>
+          </div>
+          <div class="subjects-container">
+            <!-- Subjects will be loaded here -->
+          </div>
+        </section>
+
+        <!-- Subject Details Modal -->
+        <div id="subject-modal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-subject-title"></h2>
+            <p id="modal-subject-description"></p>
+            <div id="modal-prerequisites">
+              <h3>Prerequisites:</h3>
+              <ul id="prerequisites-list"></ul>
+            </div>
+            <div id="modal-instructors">
+              <h3>Available Instructors:</h3>
+              <div class="instructors-list">
+                <!-- Instructors will be loaded here -->
+              </div>
+            </div>
+            <button id="enroll-button" class="primary-button">Enroll in this Subject</button>
+          </div>
+        </div>
+
+        <!-- Instructor Details Modal -->
+        <div id="instructor-modal" class="modal">
+          <div class="modal-content">
+            <span class="instructor-close">&times;</span>
+            <div class="instructor-profile">
+              <div class="instructor-header">
+                <div class="instructor-avatar">
+                  <div class="avatar-placeholder"></div>
+                </div>
+                <div class="instructor-info">
+                  <h2 id="modal-instructor-name"></h2>
+                  <div class="instructor-rating" id="modal-instructor-rating"></div>
+                  <div class="instructor-specialization" id="modal-instructor-specialization"></div>
+                </div>
+              </div>
+              <div class="instructor-bio" id="modal-instructor-bio"></div>
+              <div class="instructor-courses">
+                <h3>Courses Taught:</h3>
+                <ul id="instructor-courses-list"></ul>
+              </div>
+              <div class="instructor-schedule">
+                <h3>Current Schedule:</h3>
+                <p id="modal-instructor-schedule"></p>
+                <p id="modal-instructor-room"></p>
+              </div>
+              <div class="instructor-stats">
+                <div class="stat">
+                  <span class="stat-label">Total Students:</span>
+                  <span class="stat-value" id="modal-instructor-enrolled"></span>
+                </div>
+                <div class="stat">
+                  <span class="stat-label">Available Slots:</span>
+                  <span class="stat-value" id="modal-instructor-slots"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <!-- Cart Section -->
+          <section id="cart" class="cart-section" style="display: none;">
+            <h2>Selected Subjects</h2>
+            <div class="cart-items">
+              <!-- Cart items will be loaded here -->
+            </div>
+            <div class="cart-summary">
+              <p>Total Units: <span id="total-units">0</span></p>
+              <p>Total Amount: ₱<span id="total-amount">0.00</span></p>
+              <button id="checkout-button" class="primary-button" disabled>Proceed to Payment</button>
+            </div>
+          </section>
+
+        <!-- Payment Modal -->
+        <div id="payment-modal" class="modal">
+          <div class="modal-content">
+            <span class="payment-close">&times;</span>
+            <h2>Payment Details</h2>
+            <div class="payment-summary">
+              <h3>Enrollment Summary</h3>
+              <div id="payment-subjects">
+                <!-- Enrolled subjects will be listed here -->
+              </div>
+              <div class="payment-total">
+                <p>Total Units: <span id="payment-units">0</span></p>
+                <p>Total Amount: ₱<span id="payment-amount">0.00</span></p>
+              </div>
+            </div>
+            <div class="payment-form">
+              <h3>Payment Method</h3>
+              <div class="payment-methods">
+                <label>
+                  <input type="radio" name="payment-method" value="credit" checked>
+                  Credit/Debit Card
+                </label>
+                <label>
+                  <input type="radio" name="payment-method" value="bank">
+                  Bank Transfer
+                </label>
+                <label>
+                  <input type="radio" name="payment-method" value="ewallet">
+                  E-Wallet
+                </label>
+              </div>
+              <div id="credit-payment" class="payment-details active">
+                <div class="form-group">
+                  <label for="card-number">Card Number</label>
+                  <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="expiry-date">Expiry Date</label>
+                    <input type="text" id="expiry-date" placeholder="MM/YY">
+                  </div>
+                  <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" placeholder="123">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="card-name">Name on Card</label>
+                  <input type="text" id="card-name" placeholder="John Doe">
+                </div>
+              </div>
+              <button id="complete-payment" class="primary-button">Complete Payment</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Success Modal -->
+        <div id="success-modal" class="modal">
+          <div class="modal-content success-content">
+            <h2>Enrollment Successful!</h2>
+            <div class="success-icon">✓</div>
+            <p>You have successfully enrolled in your selected subjects.</p>
+            <p>Your enrollment reference number: <span id="reference-number"></span></p>
+            <button id="close-success" class="primary-button">Close</button>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
