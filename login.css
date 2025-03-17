@@ -1,60 +1,123 @@
-/* style.css */
-#side {
-    width: 344px;
-    height: 500px;
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.split {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.split.left {
+  background: url('https://via.placeholder.com/800') no-repeat center center/cover;
+  color: #fff;
+}
+
+.split.right {
+  background: #fff;
+  padding: 2rem;
+}
+
+.content {
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+h1, h2 {
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.signup-link {
+  margin-top: 1rem;
+}
+
+.signup-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
   }
-  
-  body {
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
-    background-image: linear-gradient(-90deg, #1e596b, #54c283);
+
+  .split {
+    flex: none;
+    height: 50vh;
   }
-  
-  #form-div {
-    padding: 50px;
-    background-color: #fff;
-    height: 500px;
-    width: 342px;
+
+  .split.left {
+    background-position: center;
   }
-  
-  h1 {
-    text-align: center;
-    font-family: Freestyle Script;
-    color: #555;
-    letter-spacing: 1px;
-    font-size: 100px;
+
+  .split.right {
+    padding: 1rem;
   }
-  
-  #btn {
-    width: 230px;
+
+  .content {
+    max-width: 100%;
   }
-  
-  #main {
-    height: 500px;
-    width: 50%;
-  }
-  
-  /* Additional styles for form elements */
-  .form-group label {
-    font-weight: bold;
-  }
-  
-  .form-control {
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    padding: 10px;
-  }
-  
-  .btn-primary {
-    background-color: #1e596b;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .btn-primary:hover {
-    background-color: #54c283;
-  }
+}

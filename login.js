@@ -1,4 +1,3 @@
-// login.js
 document.addEventListener('DOMContentLoaded', () => {
   const loginForm = document.getElementById('login-form');
 
@@ -14,12 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Simulate a login request (replace with actual API call)
-    if (password === 'password') { // Replace with actual password validation
-      alert('Login successful! Redirecting to dashboard...');
-      window.location.href = 'index.html'; // Redirect to the main enrollment page
-    } else {
-      alert('Invalid email or password');
+    // Validate password (must not be blank)
+    if (password.trim() === '') {
+      alert('Password cannot be blank.');
+      return;
     }
+
+    // Simulate a login request (replace with actual API call)
+    alert('Login successful! Redirecting to dashboard...');
+    window.location.href = 'index.html'; // Redirect to the main enrollment page
   });
 });
