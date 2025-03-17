@@ -15,6 +15,7 @@ body {
 .container {
   display: flex;
   height: 100vh;
+  flex-direction: column; /* Default to column layout for mobile */
 }
 
 .split {
@@ -27,33 +28,36 @@ body {
 }
 
 .split.left {
-  flex: 3;
+  flex: 1; /* Adjusted for mobile */
   background: url('https://via.placeholder.com/800') no-repeat center center/cover;
   color: #fff;
 }
 
 .split.right {
-  flex: 1;
+  flex: 1; /* Adjusted for mobile */
   background: #fff;
-  padding: 2rem;
+  padding: 1rem; /* Reduced padding for mobile */
 }
 
 .content {
   text-align: center;
   max-width: 400px;
   width: 100%;
+  padding: 1rem; /* Added padding for better spacing on mobile */
 }
 
 h1, h2 {
   margin-bottom: 1rem;
+  font-size: 1.5rem; /* Adjusted font size for mobile */
 }
 
 p {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem; /* Reduced margin for mobile */
+  font-size: 0.9rem; /* Adjusted font size for mobile */
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem; /* Reduced margin for mobile */
   text-align: left;
 }
 
@@ -61,19 +65,20 @@ label {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: bold;
+  font-size: 0.9rem; /* Adjusted font size for mobile */
 }
 
 input {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.5rem; /* Reduced padding for mobile */
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 1rem;
+  font-size: 0.9rem; /* Adjusted font size for mobile */
 }
 
 .btn {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.5rem; /* Reduced padding for mobile */
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -89,6 +94,7 @@ input {
 
 .signup-link {
   margin-top: 1rem;
+  font-size: 0.9rem; /* Adjusted font size for mobile */
 }
 
 .signup-link a {
@@ -102,6 +108,7 @@ input {
 
 .forgot-password {
   margin-top: 1rem;
+  font-size: 0.9rem; /* Adjusted font size for mobile */
 }
 
 .forgot-password a {
@@ -114,25 +121,38 @@ input {
 }
 
 /* Responsive Styles */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .container {
-    flex-direction: column;
-  }
-
-  .split {
-    flex: none;
-    height: 50vh;
+    flex-direction: row; /* Switch back to row layout for larger screens */
   }
 
   .split.left {
-    background-position: center;
+    flex: 3; /* Adjusted for larger screens */
   }
 
   .split.right {
-    padding: 1rem;
+    flex: 1; /* Adjusted for larger screens */
+    padding: 2rem; /* Restore padding for larger screens */
   }
 
-  .content {
-    max-width: 100%;
+  h1, h2 {
+    font-size: 2rem; /* Restore font size for larger screens */
+  }
+
+  p {
+    font-size: 1rem; /* Restore font size for larger screens */
+  }
+
+  input {
+    padding: 0.75rem; /* Restore padding for larger screens */
+    font-size: 1rem; /* Restore font size for larger screens */
+  }
+
+  .btn {
+    padding: 0.75rem; /* Restore padding for larger screens */
+  }
+
+  .signup-link, .forgot-password {
+    font-size: 1rem; /* Restore font size for larger screens */
   }
 }
