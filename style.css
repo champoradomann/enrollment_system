@@ -1270,66 +1270,319 @@ select {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   nav {
     margin-top: 1rem;
     width: 100%;
   }
-  
+
   nav ul {
     width: 100%;
     flex-wrap: wrap;
+    gap: 0.5rem;
   }
-  
+
   nav a {
     display: block;
     text-align: center;
+    padding: 0.5rem;
+    font-size: 0.875rem;
   }
-  
-  .subjects-container, .prerequisites-list, .completed-subjects, .instructors-dashboard {
+
+  .subjects-container,
+  .prerequisites-list,
+  .completed-subjects,
+  .instructors-dashboard {
     grid-template-columns: 1fr;
   }
-  
+
   .modal-content {
     width: 95%;
     padding: 1.5rem;
   }
-  
+
   .instructors-list {
     grid-template-columns: 1fr;
   }
-  
+
   .cart-summary {
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .cart-summary #checkout-button {
     width: 100%;
   }
-  
+
   .form-row {
     flex-direction: column;
     gap: 0;
   }
-  
+
   .tree-children {
     margin-left: 1rem;
     padding-left: 0.5rem;
   }
-  
+
   .instructor-header {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .instructor-stats {
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .dashboard-stats {
     grid-template-columns: 1fr;
+  }
+
+  .dashboard-container {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stat-icon {
+    margin-bottom: 1rem;
+  }
+
+  .enrollment-table th,
+  .enrollment-table td {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .summary-container {
+    padding: 0.5rem 0;
+  }
+
+  .summary-item {
+    padding: 0.5rem 0;
+  }
+
+  .notification-banner {
+    font-size: 0.875rem;
+    padding: 0.75rem;
+  }
+
+  .term-section h3 {
+    font-size: 1rem;
+  }
+
+  .term-subjects-container {
+    grid-template-columns: 1fr;
+  }
+
+  .subject-card {
+    padding: 1rem;
+  }
+
+  .subject-card h3 {
+    font-size: 1rem;
+  }
+
+  .subject-card .subject-code {
+    font-size: 0.75rem;
+  }
+
+  .subject-card .subject-details {
+    font-size: 0.75rem;
+  }
+
+  .completed-badge {
+    font-size: 0.625rem;
+    padding: 0.25rem;
+    min-width: 30px;
+  }
+
+  .completed-badge .grade {
+    font-size: 0.75rem;
+  }
+
+  .currently-taking-badge {
+    font-size: 0.625rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .in-cart-badge {
+    font-size: 0.625rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.75rem 0;
+  }
+
+  .cart-item-details h3 {
+    font-size: 1rem;
+  }
+
+  .cart-item-details .subject-code {
+    font-size: 0.75rem;
+  }
+
+  .cart-item-details .instructor {
+    font-size: 0.75rem;
+  }
+
+  .cart-item-details .room {
+    font-size: 0.75rem;
+  }
+
+  .cart-item-actions {
+    margin-top: 0.5rem;
+  }
+
+  .cart-item-units {
+    font-size: 0.75rem;
+  }
+
+  .remove-button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .primary-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .change-instructor {
+    font-size: 0.625rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .search-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  input[type="text"],
+  select {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .total-units-display {
+    padding: 0.75rem 1rem;
+  }
+
+  .units-info {
+    font-size: 0.875rem;
+  }
+
+  .max-units {
+    font-size: 0.75rem;
+  }
+
+  .units-progress {
+    height: 0.375rem;
+  }
+
+  .progress-bar {
+    height: 100%;
+  }
+
+  .dashboard-section {
+    padding: 1rem;
+  }
+
+  .dashboard-section h3 {
+    font-size: 1rem;
+  }
+
+  .stat-info h3 {
+    font-size: 0.875rem;
+  }
+
+  .stat-info p {
+    font-size: 1.25rem;
+  }
+
+  .instructor-dashboard-card {
+    padding: 1rem;
+  }
+
+  .instructor-dashboard-card h3 {
+    font-size: 1rem;
+  }
+
+  .instructor-specialization {
+    font-size: 0.75rem;
+  }
+
+  .instructor-rating {
+    font-size: 0.875rem;
+  }
+
+  .instructor-courses h4 {
+    font-size: 0.75rem;
+  }
+
+  .course-tag {
+    font-size: 0.625rem;
+  }
+
+  .instructor-profile {
+    gap: 1rem;
+  }
+
+  .instructor-header {
+    gap: 1rem;
+  }
+
+  .avatar-placeholder {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+  }
+
+  #modal-instructor-name {
+    font-size: 1.5rem;
+  }
+
+  #modal-instructor-rating {
+    font-size: 0.875rem;
+  }
+
+  #modal-instructor-specialization {
+    font-size: 0.75rem;
+  }
+
+  .instructor-bio {
+    font-size: 0.875rem;
+  }
+
+  .instructor-courses h3,
+  .instructor-schedule h3 {
+    font-size: 1rem;
+  }
+
+  #instructor-courses-list li {
+    font-size: 0.75rem;
+  }
+
+  .instructor-schedule p {
+    font-size: 0.875rem;
+  }
+
+  .stat {
+    padding: 0.75rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+  }
+
+  .stat-value {
+    font-size: 1rem;
   }
 }
 
